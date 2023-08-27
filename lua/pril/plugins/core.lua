@@ -1,7 +1,5 @@
-print("loading pril/plugins/core.lua")
 require("pril.config")
 
-print("pre-return pril/plugins/core.lua")
 return {
     { "folke/lazy.nvim", version = "*" },
     {

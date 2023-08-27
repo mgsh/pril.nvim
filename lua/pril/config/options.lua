@@ -1,5 +1,3 @@
-print("loading pril/config/options.lua")
-
 -- This file is automatically loaded by plugins.core
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
@@ -13,10 +11,10 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
 vim.opt.list = true -- show invisible chars like tabs, trailing spaces, ...
-
--- lualine
 vim.opt.showmode = false
-vim.opt.laststatus = 0
+
+-- TODO: use lua functions to read from file; and autoreload?
+vim.opt.background = vim.trim(vim.fn.system("cat " .. vim.fn.stdpath("config") .. "/background"))
 
 -- indents and tabs
 vim.opt.tabstop = 4
@@ -36,9 +34,8 @@ vim.opt.grepprg = "rg --vimgrep"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+-- system
 vim.opt.clipboard = "unnamedplus" -- sync with system clipboard
 
 -- which-key
 vim.opt.timeoutlen = 300
-
-print("done pril/config/options.lua")

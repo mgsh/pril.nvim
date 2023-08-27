@@ -14,6 +14,9 @@ return {
             defaults = {
                 prompt_prefix = " ",
                 selection_caret = " ",
+                preview = false,
+                sorting_strategy = "ascending",
+                layout_config = { prompt_position = "top", },
             },
         },
     },
