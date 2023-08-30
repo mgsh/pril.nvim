@@ -12,6 +12,7 @@ vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
 vim.opt.list = true -- show invisible chars like tabs, trailing spaces, ...
 vim.opt.showmode = false
+vim.diagnostic.config({ virtual_text = false })
 
 -- TODO: use lua functions to read from file; and autoreload?
 vim.opt.background = vim.trim(vim.fn.system("cat " .. vim.fn.stdpath("config") .. "/background"))
