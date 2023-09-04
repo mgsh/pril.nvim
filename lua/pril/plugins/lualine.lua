@@ -5,12 +5,12 @@ return {
         opts = {
             options = {
                 globalstatus = true,
+                section_separators = "",
+                component_separators = "",
             },
             sections = {
                 lualine_b = {"branch", "diagnostics"},
-                lualine_c = {
-                    { "filename", path = 1, symbols = { modified = "[*]", readonly = "", unnamed = "" } }
-                }
+                lualine_c = {},
             },
         },
     },

@@ -1,3 +1,7 @@
+if vim.g.vscode then
+    return {}
+end
+
 return {
     {
         "folke/noice.nvim",
@@ -34,7 +38,7 @@ return {
             {
                 "rcarriga/nvim-notify",
                 version = "*",
-                opts = function(_, _)
+                opts = function()
                     -- use theme colors
                     local colors = {}
                     colors["NotifyTRACETitle"] = "DiagnosticOk"
@@ -43,7 +47,7 @@ return {
                     colors["NotifyWARNTitle"] = "DiagnosticWarn"
                     colors["NotifyERRORTitle"] = "DiagnosticError"
                     for group, link in pairs(colors) do
-                       vim.api.nvim_set_hl(0, group, {link = link})
+                       vim.api.nvim_set_hl(0, group, { link = link })
                     end
 
                     return {

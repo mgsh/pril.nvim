@@ -3,7 +3,7 @@ return {
         "nvim-telescope/telescope.nvim",
         branch = "0.1.x",
         cmd = "Telescope",
-        dependencies = { 'nvim-lua/plenary.nvim', lazy = true, },
+        -- dependencies = { 'nvim-lua/plenary.nvim', lazy = true, },
         keys = {
             { "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
             { "<leader>/", "<cmd>Telescope live_grep<cr>", desc = "Grep (root dir)" },
