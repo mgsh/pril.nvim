@@ -6,11 +6,13 @@ return {
             silent = true,
         },
         config = function()
-            vim.api.nvim_create_autocmd("TextYankPost", {
-                callback = function()
-                    require("osc52").copy_register("+")
-                end,
-            })
+            if not( vim.g.vscode ) then
+                vim.api.nvim_create_autocmd("TextYankPost", {
+                    callback = function()
+                        require("osc52").copy_register("+")
+                    end,
+                })
+            end
         end,
     },
 }
