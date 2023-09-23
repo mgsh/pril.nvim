@@ -9,7 +9,7 @@ return {
                 component_separators = "",
             },
             sections = {
-                lualine_b = {"branch", "diagnostics"},
+                lualine_b = { "branch", "diagnostics" },
                 lualine_c = {},
             },
         },
