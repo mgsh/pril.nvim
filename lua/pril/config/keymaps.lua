@@ -12,7 +12,7 @@ vim.keymap.set("n", "<leader>w", "<cmd>bd<cr>", { desc = "Close buffer" })
 vim.keymap.set("n", "<leader>ww", "<cmd>bd!<cr>", { desc = "Delete buffer without writing" })
 
 -- terminal
-vim.keymap.set("n", "<leader>t", "<cmd>te<cr>", { desc = "Open a terminal buffer" })
+-- vim.keymap.set("n", "<leader>t", "<cmd>te<cr>", { desc = "Open a terminal buffer" })
 vim.keymap.set("t", "<C-\\><C-\\>", "<C-\\><C-n>", { desc = "Go to normal mode" })
 
 -- visual ergonomics

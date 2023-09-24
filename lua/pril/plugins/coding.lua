@@ -4,13 +4,14 @@ return {
         "L3MON4D3/LuaSnip",
         -- follow latest release.
         version = "2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        event = "InsertEnter",
     },
 
     -- comments
     { "JoosepAlviste/nvim-ts-context-commentstring", lazy = true },
     {
         "echasnovski/mini.comment",
-        event = "VeryLazy",
+        event = "BufReadPost",
         opts = {
             options = {
                 custom_commentstring = function()
@@ -66,7 +67,7 @@ return {
     {
         "echasnovski/mini.pairs",
         version = "*",
-        event = "VeryLazy",
+        event = "InsertEnter",
         opts = {},
     },
 }
