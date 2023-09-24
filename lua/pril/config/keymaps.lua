@@ -4,15 +4,10 @@ vim.keymap.set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
 vim.keymap.set("n", "<leader><S-q><S-q>", "<cmd>qa!<cr>", { desc = "Quit all without writing" })
 
 -- buffers
-vim.keymap.set("n", "<leader>p", "<cmd>bn<cr>", { desc = "Next buffer" })
-vim.keymap.set("n", "<leader>n", "<cmd>bp<cr>", { desc = "Previous buffer" })
-vim.keymap.set("n", "<leader>l", "<cmd>e #<cr>", { desc = "Switch to other buffer" })
+vim.keymap.set("n", "<leader>l", "<C-^>", { desc = "Previously active buffer" })
 vim.keymap.set("n", "<leader><S-n>", "<cmd>enew<cr>", { desc = "New buffer" })
-vim.keymap.set("n", "<leader>w", "<cmd>bd<cr>", { desc = "Close buffer" })
-vim.keymap.set("n", "<leader>ww", "<cmd>bd!<cr>", { desc = "Delete buffer without writing" })
 
 -- terminal
--- vim.keymap.set("n", "<leader>t", "<cmd>te<cr>", { desc = "Open a terminal buffer" })
 vim.keymap.set("t", "<C-\\><C-\\>", "<C-\\><C-n>", { desc = "Go to normal mode" })
 
 -- visual ergonomics
@@ -27,12 +22,12 @@ vim.keymap.set({ "n", "v", "s", "o" }, ";", ":", { desc = "Start entering an Ex 
 vim.keymap.set({ "n", "v", "s", "o" }, ";;", ";", { desc = "Repeat latest f, t, F or T N times" })
 
 -- move line/selection up/down
-vim.keymap.set({"n"}, "<M-j>", "<cmd>m .+1<cr>==", { desc = "Move line down" })
-vim.keymap.set({"n"}, "<M-k>", "<cmd>m .-2<cr>==", { desc = "Move line up" })
-vim.keymap.set({"i"}, "<M-j>", "<cmd>m .+1<cr><C-f>", { desc = "Move line down" })
-vim.keymap.set({"i"}, "<M-k>", "<cmd>m .-2<cr><C-f>", { desc = "Move line up" })
-vim.keymap.set({"v"}, "<M-j>", "<esc><cmd>'<,'>m '>+1<cr>gv=gv", { desc = "Move selection down" })
-vim.keymap.set({"v"}, "<M-k>", "<esc><cmd>'<,'>m '<-2<cr>gv=gv", { desc = "Move selection up" })
+vim.keymap.set({"n"}, "<M-J>", "<cmd>m .+1<cr>==", { desc = "Move line down" })
+vim.keymap.set({"n"}, "<M-K>", "<cmd>m .-2<cr>==", { desc = "Move line up" })
+vim.keymap.set({"i"}, "<M-J>", "<cmd>m .+1<cr><C-f>", { desc = "Move line down" })
+vim.keymap.set({"i"}, "<M-K>", "<cmd>m .-2<cr><C-f>", { desc = "Move line up" })
+vim.keymap.set({"v"}, "<M-J>", "<esc><cmd>'<,'>m '>+1<cr>gv=gv", { desc = "Move selection down" })
+vim.keymap.set({"v"}, "<M-K>", "<esc><cmd>'<,'>m '<-2<cr>gv=gv", { desc = "Move selection up" })
 
 -- insert/command mode improvements
 vim.keymap.set({"i", "c"}, "<C-a>", "<cmd>norm ^<cr>", { desc = "Move to start of line" })
