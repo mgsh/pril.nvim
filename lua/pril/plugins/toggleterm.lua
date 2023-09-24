@@ -4,9 +4,10 @@ return {
         version = "*",
         event = "VeryLazy",
         opts = {
-            open_mapping = "<leader>t",
-            insert_mappings = false,
-            terminal_mappings = false,
+            open_mapping = "<C-\\>",
+            start_in_insert = false,
+            insert_mappings = true,
+            terminal_mappings = true,
             direction = "tab",
             shade_terminals = false,
         },
