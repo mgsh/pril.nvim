@@ -4,8 +4,8 @@ vim.keymap.set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
 vim.keymap.set("n", "<leader><S-q><S-q>", "<cmd>qa!<cr>", { desc = "Quit all without writing" })
 
 -- buffers
-vim.keymap.set("n", "<leader>l", "<C-^>", { desc = "Previously active buffer" })
-vim.keymap.set("n", "<leader><S-n>", "<cmd>enew<cr>", { desc = "New buffer" })
+vim.keymap.set("n", "<leader>l", "<C-^>", { desc = "Previously Active Buffer" })
+vim.keymap.set("n", "<leader><S-n>", "<cmd>enew<cr>", { desc = "New Buffer" })
 
 -- terminal
 vim.keymap.set("t", "<C-\\><C-\\>", "<C-\\><C-n>", { desc = "Go to normal mode" })
