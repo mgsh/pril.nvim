@@ -1,11 +1,11 @@
 return {
-    { "nvim-lua/plenary.nvim", lazy = true, },
+    { "nvim-lua/plenary.nvim", lazy = true },
 
     -- used by: bufferline
-    { "nvim-tree/nvim-web-devicons", lazy = true, },
+    { "nvim-tree/nvim-web-devicons", lazy = true },
 
     -- used by: noice
-    { "MunifTanjim/nui.nvim", version = "*", lazy = true, },
+    { "MunifTanjim/nui.nvim", version = "*", lazy = true },
 
     -- used by: noice
     {
@@ -31,4 +31,7 @@ return {
         end,
         lazy = true,
     },
+
+    -- used by: flit, leap
+    { "tpope/vim-repeat", version = "*", lazy = true },
 }

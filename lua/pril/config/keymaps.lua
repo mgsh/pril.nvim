@@ -41,6 +41,7 @@ vim.keymap.set({"i", "c"}, "<M-f>", "<cmd>norm w<cr>", { desc = "Move one word r
 vim.keymap.set({"i", "c"}, "<C-d>", "<del>", { desc = "Delete character under cursor" })
 vim.keymap.set({"i", "c"}, "<C-k>", "<cmd>norm d$<cr>", { desc = "Delete until end of line" })
 vim.keymap.set({"i", "c"}, "<M-d>", "<cmd>norm de<cr>", { desc = "Delete word after cursor" })
+-- TODO: fix delete word from end of line
 vim.keymap.set({"i", "c"}, "<M-BS>", "<cmd>norm db<cr>", { desc = "Delete word before cursor" })
 vim.keymap.set({"i", "c"}, "<C-y>", "<C-r><C-o>+", { desc = "Paste" })
 vim.keymap.set({"i", "c"}, "<C-v>", "<C-r><C-o>+", { desc = "Paste" })
