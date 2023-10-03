@@ -16,7 +16,6 @@ vim.keymap.set("t", "<C-\\><C-\\>", "<C-\\><C-n>", { desc = "Go to normal mode" 
 -- vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- keypress ergonomics
--- vim.keymap.set("i", "<C-[>", ""
 vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
 vim.keymap.set({ "n", "v", "s", "o" }, ";", ":", { desc = "Start entering an Ex command" })
 vim.keymap.set({ "n", "v", "s", "o" }, ";;", ";", { desc = "Repeat latest f, t, F or T N times" })
