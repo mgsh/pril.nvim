@@ -1,4 +1,5 @@
 return {
+    -- TODO: reorganize dependencies
     { "nvim-lua/plenary.nvim", lazy = true },
 
     -- used by: bufferline

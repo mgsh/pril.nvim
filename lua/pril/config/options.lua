@@ -38,6 +38,7 @@ vim.opt.smartcase = true
 
 -- system
 vim.opt.clipboard = "unnamedplus" -- sync with system clipboard
+-- vim.opt.autoreload = true  -- inside tmux autoreload works only if tmux option focus-events is on
 
 -- which-key
 vim.opt.timeoutlen = 300
