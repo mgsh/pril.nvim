@@ -40,7 +40,8 @@ return {
         },
         keys = {
             -- controls
-            { "<leader>w", "<cmd>BufferClose<cr>", desc = "Close Buffer" },
+            { "<leader>w", "<cmd>bdelete<cr>", desc = "Delete Buffer" },
+            { "<leader>c", "<cmd>BufferClose<cr>", desc = "Close Buffer" },
             { "<leader>ww", "<cmd>BufferClose!<cr>", desc = "Close Buffer (without writing)" },
             { "<leader>P", "<cmd>BufferPin<cr>", desc = "Pin Buffer" },
 
