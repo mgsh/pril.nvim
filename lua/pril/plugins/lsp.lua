@@ -8,12 +8,13 @@ return {
             "williamboman/mason-lspconfig.nvim",
         },
         opts = {
-            servers = {
+            server_opts = {
+                -- server opts
                 pyright = {},
                 ruff_lsp = {},
                 jedi_language_server = {},
             },
-            setup = {
+            presetup = {
                 ruff_lsp = function(client, _)
                     if client.name == "ruff_lsp" then
                         -- disable hover in favor of pyright
@@ -24,29 +25,34 @@ return {
         },
         ---@params opts PluginLspOpts
         config = function(_, opts)
-            local servers = opts.servers
-            local function setup(server)
-                server_opts = servers[server] or {}
-                if opts.setup[server] then
-                    if opts.setup[server](server, server_opts) then
+            local server_opts = opts.server_opts
+
+            -- mason-lspconfig default handler
+            local function default_handler(server)
+                -- presetup
+                sopts = server_opts[server] or {}
+                if opts.presetup[server] then
+                    if opts.presetup[server](server, sopts) then
                         return
                     end
-                elseif opts.setup["*"] then
-                    if opts.setup["*"](server, server_opts) then
+                elseif opts.presetup["*"] then
+                    if opts.presetup["*"](server, sopts) then
                         return
                     end
                 end
-                require("lspconfig")[server].setup(server_opts)
+
+                -- lspconfig setup
+                require("lspconfig")[server].setup(sopts)
             end
 
+            -- mason-lspconfig setup
             ensure_installed = {} ---@type string[]
-            for server in pairs(servers) do
+            for server in pairs(server_opts) do
                 ensure_installed[#ensure_installed + 1] = server
             end
-
             require("mason-lspconfig").setup({
                 ensure_installed = ensure_installed,
-                handlers = { setup },
+                handlers = { default_handler },
             })
         end,
     },
