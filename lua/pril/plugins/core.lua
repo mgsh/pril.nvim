@@ -8,6 +8,6 @@ return {
         lazy = false, -- load on start
         config = true, -- call config without opts
         version = "*", -- use latest stable version
-        dev = true, -- TODO: remove after development
+        branch = "lab", dev = true, -- TODO: remove after development
     },
 }
