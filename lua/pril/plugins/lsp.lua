@@ -34,7 +34,7 @@ return {
                         vim.api.nvim_create_autocmd("BufWritePre", {
                             group = vim.api.nvim_create_augroup("LspFormat", {}),
                             callback = function(_)
-                                vim.lsp.buf.format()
+                                vim.lsp.buf.format({ bufnr = event.buf })
                             end,
                         })
                     end
