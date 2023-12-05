@@ -9,7 +9,6 @@ return {
         },
         opts = {
             server_opts = {
-                -- server opts
                 pyright = {},
                 ruff_lsp = {},
                 jedi_language_server = {},
@@ -25,6 +24,24 @@ return {
         },
         ---@params opts PluginLspOpts
         config = function(_, opts)
+            -- set up keymaps and autoformat
+            vim.api.nvim_create_autocmd("LspAttach", {
+                group = vim.api.nvim_create_augroup("LspConfig", {}),
+                callback = function(event)
+                    -- autoformat
+                    local client = vim.lsp.get_client_by_id(event.data.client_id)
+                    if client.supports_method("textDocument/formatting") then
+                        vim.api.nvim_create_autocmd("BufWritePre", {
+                            group = vim.api.nvim_create_augroup("LspFormat", {}),
+                            callback = function(_)
+                                vim.lsp.buf.format()
+                            end,
+                        })
+                    end
+
+                    -- keymaps
+                end,
+            })
             local server_opts = opts.server_opts
 
             -- mason-lspconfig default handler
