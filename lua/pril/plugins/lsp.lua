@@ -40,6 +40,8 @@ return {
                     end
 
                     -- keymaps
+                    local opts = { buffer = event.buf }
+                    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
                 end,
             })
             local server_opts = opts.server_opts
