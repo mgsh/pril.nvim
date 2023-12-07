@@ -40,29 +40,28 @@ return {
         },
         keys = {
             -- controls
-            { "<leader>w", "<cmd>bdelete<cr>", desc = "Delete Buffer" },
-            { "<leader>c", "<cmd>BufferClose<cr>", desc = "Close Buffer" },
-            { "<leader>ww", "<cmd>BufferClose!<cr>", desc = "Close Buffer (without writing)" },
-            { "<leader>P", "<cmd>BufferPin<cr>", desc = "Pin Buffer" },
+            { "<leader>w", "<cmd>bdelete<cr>", desc = "Delete buffer" },
+            { "<leader>c", "<cmd>BufferClose<cr>", desc = "Close buffer" },
+            { "<leader>ww", "<cmd>bdelete!<cr>", desc = "Delete buffer (without writing)" },
+            { "<leader>cc", "<cmd>BufferClose!<cr>", desc = "Close buffer (without writing)" },
+            { "<leader>P", "<cmd>BufferPin<cr>", desc = "Pin buffer" },
 
             -- navigation
-            { "<leader>p", "<cmd>BufferPrevious<cr>", desc = "Previous Buffer" },
-            { "<leader>n", "<cmd>BufferNext<cr>", desc = "Next Buffer" },
+            { "<leader>p", "<cmd>BufferPrevious<cr>", desc = "Switch to previous buffer" },
+            { "<leader>n", "<cmd>BufferNext<cr>", desc = "Switch to next buffer" },
 
             -- selection
-            { "<leader><", "<cmd>BufferPick<cr>", desc = "Pick Buffers" },
-
-            -- jump
-            { "<leader>1", "<cmd>BufferGoto 1<cr>", desc = "Buffer 1" },
-            { "<leader>2", "<cmd>BufferGoto 2<cr>", desc = "Buffer 2" },
-            { "<leader>3", "<cmd>BufferGoto 3<cr>", desc = "Buffer 3" },
-            { "<leader>4", "<cmd>BufferGoto 4<cr>", desc = "Buffer 4" },
-            { "<leader>5", "<cmd>BufferGoto 5<cr>", desc = "Buffer 5" },
-            { "<leader>6", "<cmd>BufferGoto 6<cr>", desc = "Buffer 6" },
-            { "<leader>7", "<cmd>BufferGoto 7<cr>", desc = "Buffer 7" },
-            { "<leader>8", "<cmd>BufferGoto 8<cr>", desc = "Buffer 8" },
-            { "<leader>9", "<cmd>BufferGoto 9<cr>", desc = "Buffer 9" },
-            { "<leader>0", "<cmd>BufferLast<cr>", desc = "Last Buffer (rightmost)" },
+            { "<leader><", "<cmd>BufferPick<cr>", desc = "Switch buffer (pick)" },
+            { "<leader>1", "<cmd>BufferGoto 1<cr>", desc = "Switch to buffer 1" },
+            { "<leader>2", "<cmd>BufferGoto 2<cr>", desc = "Switch to buffer 2" },
+            { "<leader>3", "<cmd>BufferGoto 3<cr>", desc = "Switch to buffer 3" },
+            { "<leader>4", "<cmd>BufferGoto 4<cr>", desc = "Switch to buffer 4" },
+            { "<leader>5", "<cmd>BufferGoto 5<cr>", desc = "Switch to buffer 5" },
+            { "<leader>6", "<cmd>BufferGoto 6<cr>", desc = "Switch to buffer 6" },
+            { "<leader>7", "<cmd>BufferGoto 7<cr>", desc = "Switch to buffer 7" },
+            { "<leader>8", "<cmd>BufferGoto 8<cr>", desc = "Switch to buffer 8" },
+            { "<leader>9", "<cmd>BufferGoto 9<cr>", desc = "Switch to buffer 9" },
+            { "<leader>0", "<cmd>BufferLast<cr>", desc = "Switch to last buffer (rightmost)" },
         },
     },
 }

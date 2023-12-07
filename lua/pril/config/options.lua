@@ -1,4 +1,4 @@
--- This file is automatically loaded by plugins.core
+-- this file is automatically loaded by plugins.core
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
@@ -12,7 +12,7 @@ vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
 vim.opt.list = true -- show invisible chars like tabs, trailing spaces, ...
 vim.opt.showmode = false
--- vim.opt.scrolloff = 4
+-- vim.opt.scrolloff = 0
 vim.diagnostic.config({ virtual_text = false })
 
 -- TODO: use lua functions to read from file; and autoreload?

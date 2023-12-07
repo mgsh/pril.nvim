@@ -40,8 +40,21 @@ return {
                     end
 
                     -- keymaps
-                    local opts = { buffer = event.buf }
-                    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+                    local buf = event.buf
+                    vim.keymap.set("n", "gd", function() require("telescope.builtin").lsp_definitions({ reuse_win = true }) end, { buffer = buf, desc = "Goto definition" })
+                    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = buf, desc = "Goto declaration" })
+                    vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", { buffer = buf, desc = "Show references" })
+                    vim.keymap.set("n", "gI", function() require("telescope.builtin").lsp_implementations({ reuse_win = true }) end, { buffer = buf, desc = "Goto implementation" })
+                    vim.keymap.set("n", "gy", function() require("telescope.builtin").lsp_type_definitions({ reuse_win = true }) end, { buffer = buf, desc = "Goto type definition" })
+                    vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = buf, desc = "Hover" })
+                    vim.keymap.set("n", "gK", vim.lsp.buf.signature_help, { buffer = buf, desc = "Signature help" })
+                    vim.keymap.set("i", "<C-x><C-k>", vim.lsp.buf.signature_help, { buffer = buf, desc = "Signature help" })
+
+                    -- diagnostics
+                    -- for name, icon in pairs(require("lazyvim.config").icons.diagnostics) do
+                    --     name = "DiagnosticSign" .. name
+                    --     vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
+                    -- end
                 end,
             })
             local server_opts = opts.server_opts
