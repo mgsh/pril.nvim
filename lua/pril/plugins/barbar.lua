@@ -41,9 +41,10 @@ return {
         keys = {
             -- controls
             { "<leader>w", "<cmd>bdelete<cr>", desc = "Delete buffer" },
-            { "<leader>c", "<cmd>BufferClose<cr>", desc = "Close buffer" },
+            { "<leader>c", "<cmd>BufferClose<cr>", desc = "Close buffer (retaining layout)" },
+            { "<leader>W", "<cmd>BufferCloseAllButCurrentOrPinned<cr>", desc = "Close all buffers (except current or pinnned)" },
             { "<leader>ww", "<cmd>bdelete!<cr>", desc = "Delete buffer (without writing)" },
-            { "<leader>cc", "<cmd>BufferClose!<cr>", desc = "Close buffer (without writing)" },
+            { "<leader>cc", "<cmd>BufferClose!<cr>", desc = "Close buffer (without writing, retaining layout)" },
             { "<leader>P", "<cmd>BufferPin<cr>", desc = "Pin buffer" },
 
             -- navigation
