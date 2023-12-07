@@ -51,10 +51,17 @@ return {
                     vim.keymap.set("i", "<C-x><C-k>", vim.lsp.buf.signature_help, { buffer = buf, desc = "Signature help" })
 
                     -- diagnostics
-                    -- for name, icon in pairs(require("lazyvim.config").icons.diagnostics) do
-                    --     name = "DiagnosticSign" .. name
-                    --     vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
-                    -- end
+                    -- TODO: move to reusable config
+                    local diagnostics = {
+                        Error = " ",
+                        Warn  = " ",
+                        Hint  = " ",
+                        Info  = " ",
+                    }
+                    for name, icon in pairs(diagnostics) do
+                        name = "DiagnosticSign" .. name
+                        vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
+                    end
                 end,
             })
             local server_opts = opts.server_opts
