@@ -15,14 +15,14 @@ return {
             { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Find recent" },
 
             -- search
-            { "<leader>//", "<cmd>Telescope live_grep<cr>", desc = "Search text (root dir)" },
-            { "<leader>/b", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Search text (buffer)" },
-            { "<leader>/c", "<cmd>Telescope command_history<cr>", desc = "Search command history" },
-            { "<leader>/C", "<cmd>Telescope commands<cr>", desc = "Search commands" },
-            { "<leader>/h", "<cmd>Telescope help_tags<cr>", desc = "Search help pages" },
-            { "<leader>/k", "<cmd>Telescope keymaps<cr>", desc = "Search keymaps" },
-            { "<leader>/M", "<cmd>Telescope man_pages<cr>", desc = "Search man pages" },
-            { "<leader>/o", "<cmd>Telescope vim_options<cr>", desc = "Search vim options" },
+            { "<leader>sg", "<cmd>Telescope live_grep<cr>", desc = "Search text (root dir)" },
+            { "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Search text (buffer)" },
+            { "<leader>sc", "<cmd>Telescope commands<cr>", desc = "Search commands" },
+            { "<leader>sC", "<cmd>Telescope command_history<cr>", desc = "Search command history" },
+            { "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Search help pages" },
+            { "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Search keymaps" },
+            { "<leader>sm", "<cmd>Telescope man_pages<cr>", desc = "Search man pages" },
+            { "<leader>so", "<cmd>Telescope vim_options<cr>", desc = "Search vim options" },
         },
         opts = function()
             local actions = require("telescope.actions")

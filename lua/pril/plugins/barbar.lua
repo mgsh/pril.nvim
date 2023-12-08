@@ -40,19 +40,19 @@ return {
         },
         keys = {
             -- controls
-            { "<leader>w", "<cmd>bdelete<cr>", desc = "Delete buffer" },
-            { "<leader>c", "<cmd>BufferClose<cr>", desc = "Close buffer (retaining layout)" },
-            { "<leader>W", "<cmd>BufferCloseAllButCurrentOrPinned<cr>", desc = "Close all buffers (except current or pinnned)" },
-            { "<leader>ww", "<cmd>bdelete!<cr>", desc = "Delete buffer (without writing)" },
-            { "<leader>cc", "<cmd>BufferClose!<cr>", desc = "Close buffer (without writing, retaining layout)" },
-            { "<leader>P", "<cmd>BufferPin<cr>", desc = "Pin buffer" },
+            { "<leader>w", "<cmd>bdelete<cr>", desc = "Close buffer (lose layout)" },
+            { "<leader>ww", "<cmd>bdelete!<cr>", desc = "Close buffer (w/o writing)" },
+            { "<leader>c", "<cmd>BufferClose<cr>", desc = "Close buffer (keep layout)" },
+            { "<leader>cc", "<cmd>BufferClose!<cr>", desc = "Close buffer (w/o writing, keep layout)" },
+            { "<leader>W", "<cmd>BufferCloseAllButCurrentOrPinned<cr>", desc = "Close all buffers (except cur/pin)" },
+            { "<leader>>", "<cmd>BufferPin<cr>", desc = "Pin buffer" },
 
             -- navigation
             { "<leader>p", "<cmd>BufferPrevious<cr>", desc = "Switch to previous buffer" },
             { "<leader>n", "<cmd>BufferNext<cr>", desc = "Switch to next buffer" },
 
             -- selection
-            { "<leader><", "<cmd>BufferPick<cr>", desc = "Switch buffer (pick)" },
+            { "<leader>P", "<cmd>BufferPick<cr>", desc = "Select buffer" },
             { "<leader>1", "<cmd>BufferGoto 1<cr>", desc = "Switch to buffer 1" },
             { "<leader>2", "<cmd>BufferGoto 2<cr>", desc = "Switch to buffer 2" },
             { "<leader>3", "<cmd>BufferGoto 3<cr>", desc = "Switch to buffer 3" },
