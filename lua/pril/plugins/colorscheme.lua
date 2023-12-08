@@ -1,6 +1,6 @@
 return {
     {
-        "ishan9299/nvim-solarized-lua",
+        "mgsh/nvim-solarized-lua",
         lazy = true,
     }
 }

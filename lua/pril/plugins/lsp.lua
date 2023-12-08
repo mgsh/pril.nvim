@@ -9,21 +9,59 @@ return {
         },
         opts = {
             server_opts = {
-                pyright = {},
-                ruff_lsp = {},
-                jedi_language_server = {},
+                -- pyright = {
+                --     on_new_config = function(new_config, root_dir)
+                --         new_config.init_options = {
+                --             settings = {
+                --                 python = {
+                --                     pythonPath = root_dir .. "/.venv/bin/python",
+                --                 },
+                --             },
+                --         }
+                --     end,
+                -- },
+                -- ruff_lsp = {
+                --     on_new_config = function(new_config, root_dir)
+                --         new_config.init_options = {
+                --             settings = {
+                --                 interpreter = { root_dir .. "/.venv/bin/python" },
+                --             }
+                --         }
+                --     end,
+                -- },
+                --     -- before_init = function(init_params, config)
+                --     --     init_params.initializationOptions = {
+                --     --         settings = {
+                --     --             interpreter = { config.root_dir .. "/.venv/bin/python" },
+                --     --         },
+                --     --     }
+                --     -- end,
+                -- },
+                jedi_language_server = {
+                    on_new_config = function(new_config, root_dir)
+                        new_config.init_options = {
+                            workspace = {
+                                environmentPath = root_dir .. "/.venv",
+                                extraPaths = root_dir,
+                            },
+                        }
+                    end,
+                },
             },
             presetup = {
-                ruff_lsp = function(client, _)
-                    if client.name == "ruff_lsp" then
-                        -- disable hover in favor of pyright
-                        client.server_capabilities.hoverProvider = false
-                    end
-                end,
+                -- ruff_lsp = function(client, _)
+                --     if client.name == "ruff_lsp" then
+                --         -- disable hover in favor of pyright
+                --         client.server_capabilities.hoverProvider = false
+                --     end
+                -- end,
             },
         },
         ---@params opts PluginLspOpts
         config = function(_, opts)
+            -- enable debug logs
+            vim.lsp.set_log_level("debug")
+
             -- set up keymaps and autoformat
             vim.api.nvim_create_autocmd("LspAttach", {
                 group = vim.api.nvim_create_augroup("LspConfig", {}),
@@ -50,17 +88,11 @@ return {
                     vim.keymap.set("n", "gK", vim.lsp.buf.signature_help, { buffer = buf, desc = "Signature help" })
                     vim.keymap.set("i", "<C-x><C-k>", vim.lsp.buf.signature_help, { buffer = buf, desc = "Signature help" })
 
-                    -- diagnostics
-                    -- TODO: move to reusable config
-                    local diagnostics = {
-                        Error = " ",
-                        Warn  = " ",
-                        Hint  = " ",
-                        Info  = " ",
-                    }
-                    for name, icon in pairs(diagnostics) do
+                    -- disable diagnostics icons in sign column (gutter)
+                    local diagnostics = { 'Error', 'Warn', 'Hint', 'Info' }
+                    for _, name in ipairs(diagnostics) do
                         name = "DiagnosticSign" .. name
-                        vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
+                        vim.fn.sign_define(name, { text = "" })
                     end
                 end,
             })

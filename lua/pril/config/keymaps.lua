@@ -45,3 +45,8 @@ vim.keymap.set({"i"}, "<C-k>", "<cmd>norm d$<cr>", { desc = "Delete until end of
 vim.keymap.set({"i"}, "<M-d>", "<cmd>norm de<cr>", { desc = "Delete word after cursor" })
 vim.keymap.set({"i", "c"}, "<M-BS>", "<C-w>", { desc = "Delete word before cursor" })
 vim.keymap.set({"i", "c"}, "<C-v>", "<C-r><C-o>+", { desc = "Paste" })
+
+-- vim diagnostics
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
