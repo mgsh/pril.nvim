@@ -1,7 +1,7 @@
 -- save/quit
 vim.keymap.set({ "n", "i" }, "<C-s>", "<cmd>w<cr>", { desc = "Save file" })
 vim.keymap.set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
-vim.keymap.set("n", "<leader>QQ", "<cmd>qa!<cr>", { desc = "Quit all (without writing)" })
+vim.keymap.set("n", "<leader>QQ", "<cmd>qa!<cr>", { desc = "Quit all (nowrite)" })
 
 -- buffers
 vim.keymap.set("n", "<leader>l", "<C-^>", { desc = "Switch to buffer (mru)" })
