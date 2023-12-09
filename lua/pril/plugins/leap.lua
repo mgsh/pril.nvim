@@ -11,8 +11,5 @@ return {
       { "<leader>?", "<Plug>(leap-backward-till)", mode = { "x", "o" }, desc = "Leap backward till" },
       { "gs",        "<Plug>(leap-from-window)",   mode = "n",          desc = "Leap from window" },
     },
-    opts = {
-      safe_labels = "",       -- to fix hidden first match
-    },
   }
 }
