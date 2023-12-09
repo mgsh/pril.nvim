@@ -15,7 +15,7 @@ vim.opt.showmode = false
 -- vim.opt.scrolloff = 0
 vim.diagnostic.config({ virtual_text = false })
 
--- TODO: use lua functions to read from file; and autoreload?
+-- set background for colorscheme
 vim.opt.background = vim.trim(vim.fn.system("cat " .. vim.fn.stdpath("config") .. "/background"))
 
 -- indents and tabs
