@@ -5,7 +5,7 @@ vim.keymap.set("n", "<leader>QQ", "<cmd>qa!<cr>", { desc = "Quit all (nowrite)" 
 
 -- buffers
 vim.keymap.set("n", "<leader>l", "<C-^>", { desc = "Switch to buffer (mru)" })
-vim.keymap.set("n", "<leader><S-n>", "<cmd>enew<cr>", { desc = "New buffer" })
+vim.keymap.set("n", "<leader>N", "<cmd>enew<cr>", { desc = "New buffer" })
 
 -- terminal
 vim.keymap.set("t", "<C-\\><C-\\>", "<C-\\><C-n>", { desc = "Go to normal mode" })
@@ -44,7 +44,7 @@ vim.keymap.set("!", "<C-d>", "<del>", { desc = "Delete character under cursor" }
 vim.keymap.set("i", "<C-k>", "<cmd>norm d$<cr>", { desc = "Delete until end of line" })
 vim.keymap.set("i", "<M-d>", "<cmd>norm de<cr>", { desc = "Delete word after cursor" })
 vim.keymap.set("!", "<M-BS>", "<C-w>", { desc = "Delete word before cursor" })
-vim.keymap.set("!", "<C-v>", "<C-r><C-o>+", { desc = "Paste" })
+vim.keymap.set("!", "<C-v>", "<C-r><C-o>+", { desc = "Paste (noautoindent)" })
 
 -- vim diagnostics
 vim.keymap.set("n", "<leader>i", vim.diagnostic.open_float, { desc = "Show diagnostics" })
