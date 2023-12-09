@@ -8,6 +8,7 @@ return {
             "williamboman/mason-lspconfig.nvim",
         },
         opts = {
+            log_level = vim.log.levels.INFO,
             server_opts = {
                 -- TODO: standardize/document this
                 pyright = {
@@ -50,8 +51,8 @@ return {
         },
         ---@params opts PluginLspOpts
         config = function(_, opts)
-            -- enable debug logs
-            vim.lsp.set_log_level("debug")
+            -- set log level
+            vim.lsp.set_log_level(opts.log_level)
 
             -- set up keymaps and autoformat
             vim.api.nvim_create_autocmd("LspAttach", {
