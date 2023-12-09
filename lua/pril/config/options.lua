@@ -26,6 +26,17 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.shiftround = true
 
+-- language specific tabstop overrides
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  callback = function()
+    if vim.bo.filetype == "lua" then
+      vim.bo.tabstop = 2
+      vim.bo.softtabstop = 2
+      vim.bo.shiftwidth = 2
+    end
+  end,
+})
+
 -- long lines and smart break/join behavior
 vim.opt.wrap = false
 vim.opt.formatoptions = "tcqjroln"

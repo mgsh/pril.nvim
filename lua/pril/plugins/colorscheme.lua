@@ -1,6 +1,6 @@
 return {
-    {
-        "mgsh/nvim-solarized-lua",
-        lazy = true,
-    }
+  {
+    "mgsh/nvim-solarized-lua",
+    lazy = true,
+  }
 }

@@ -1,8 +1,8 @@
 return {
-    {
-        "folke/which-key.nvim",
-        version = "*",
-        event = "VeryLazy",
-        opts = {},
-    }
+  {
+    "folke/which-key.nvim",
+    version = "*",
+    event = "VeryLazy",
+    opts = {},
+  }
 }
