@@ -10,7 +10,7 @@ return {
     opts = {
       log_level = vim.log.levels.INFO,
       server_opts = {
-        -- TODO: standardize/document this
+        -- TODO: standardize/document all lsp settings
         lua_ls = {
           on_new_config = function(config, root_dir)
             config.settings = vim.tbl_deep_extend("force", config.settings, {
@@ -81,7 +81,7 @@ return {
             vim.api.nvim_create_autocmd("BufWritePre", {
               group = vim.api.nvim_create_augroup("LspFormat", {}),
               callback = function(_)
-                vim.lsp.buf.format({ bufnr = event.buf })
+                vim.lsp.buf.format()
               end,
             })
           end
