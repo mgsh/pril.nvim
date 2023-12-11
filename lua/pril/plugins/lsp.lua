@@ -10,6 +10,8 @@ return {
     opts = {
       log_level = vim.log.levels.INFO,
       server_opts = {
+        gopls = {},
+        golangci_lint_ls = {},
         -- TODO: standardize/document all lsp settings
         lua_ls = {
           on_new_config = function(config, root_dir)
