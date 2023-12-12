@@ -39,6 +39,7 @@ return {
               ["<C-d>"] = { "<Del>", type = "command" },
               ["<C-k>"] = function() vim.cmd.normal("c$") end,
               ["<C-v>"] = { "<C-r><C-o>+", type = "command" },
+              ["<esc>"] = actions.close,
             },
             n = {
               ["q"] = actions.close,

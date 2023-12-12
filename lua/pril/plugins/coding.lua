@@ -3,7 +3,7 @@ return {
   {
     "L3MON4D3/LuaSnip",
     -- follow latest release.
-    version = "2.*",     -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+    version = "2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
     event = "InsertEnter",
   },
 
@@ -24,7 +24,7 @@ return {
   -- auto completion
   {
     "hrsh7th/nvim-cmp",
-    version = false,     -- last release is way too old
+    version = false, -- last release is way too old
     event = "InsertEnter",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
@@ -52,13 +52,13 @@ return {
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
           ["<C-/>"] = cmp.mapping.complete(),
-          ["<C-_>"] = cmp.mapping.complete(),                          -- terminal sends C-_ for C-/
+          ["<C-_>"] = cmp.mapping.complete(),                -- terminal sends C-_ for C-/
           ["<C-e>"] = cmp.mapping.abort(),
-          ["<CR>"] = cmp.mapping.confirm({ select = true }),           -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+          ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
           ["<S-CR>"] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
-          }),           -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+          }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         }),
       }
     end
@@ -69,6 +69,14 @@ return {
     "echasnovski/mini.pairs",
     version = "*",
     event = "InsertEnter",
+    opts = {},
+  },
+
+  -- easy align
+  {
+    'echasnovski/mini.align',
+    version = '*',
+    event = "BufReadPost",
     opts = {},
   },
 }

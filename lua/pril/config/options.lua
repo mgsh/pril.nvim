@@ -53,3 +53,11 @@ vim.opt.clipboard = "unnamedplus" -- sync with system clipboard
 
 -- which-key
 vim.opt.timeoutlen = 300
+
+-- autocmds
+-- center cursor on opening files (useful in jumping to locations)
+vim.api.nvim_create_autocmd("CursorMoved", {
+  callback = function()
+    vim.cmd.normal("zz")
+  end,
+})

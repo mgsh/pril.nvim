@@ -8,7 +8,7 @@ vim.keymap.set("n", "<leader>l", "<C-^>", { desc = "Switch to buffer (mru)" })
 vim.keymap.set("n", "<leader>N", "<cmd>enew<cr>", { desc = "New buffer" })
 
 -- terminal
-vim.keymap.set("t", "<C-\\><C-\\>", "<C-\\><C-n>", { desc = "Go to normal mode" })
+vim.keymap.set("t", "<C-\\>", "<C-\\><C-n>", { desc = "Go to normal mode" })
 
 -- visual ergonomics
 -- vim.keymap.set("n", "J", "mzJ`z")

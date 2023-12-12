@@ -94,7 +94,8 @@ return {
             function() require("telescope.builtin").lsp_definitions({ reuse_win = true }) end,
             { buffer = buf, desc = "Goto definition" })
           vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = buf, desc = "Goto declaration" })
-          vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>",
+          vim.keymap.set("n", "gr",
+            function() require("telescope.builtin").lsp_references({ preview = true }) end,
             { buffer = buf, desc = "Show references" })
           vim.keymap.set("n", "gI",
             function() require("telescope.builtin").lsp_implementations({ reuse_win = true }) end,
