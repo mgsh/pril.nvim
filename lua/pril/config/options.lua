@@ -28,6 +28,7 @@ vim.opt.shiftround = true
 
 -- language specific tabstop overrides
 vim.api.nvim_create_autocmd("BufWinEnter", {
+  group = vim.api.nvim_create_augroup("TabStopOverrides", {}),
   callback = function()
     if vim.bo.filetype == "lua" then
       vim.bo.tabstop = 2
@@ -54,10 +55,19 @@ vim.opt.clipboard = "unnamedplus" -- sync with system clipboard
 -- which-key
 vim.opt.timeoutlen = 300
 
--- autocmds
 -- center cursor on opening files (useful in jumping to locations)
-vim.api.nvim_create_autocmd("CursorMoved", {
+vim.api.nvim_create_autocmd("BufEnter", {
+  group = vim.api.nvim_create_augroup("CursorAutoCenter:BufEnter", {}),
   callback = function()
-    vim.cmd.normal("zz")
+    vim.b.centered = nil
+  end,
+})
+vim.api.nvim_create_autocmd("CursorMoved", {
+  group = vim.api.nvim_create_augroup("CursorAutoCenter:CursorMoved", {}),
+  callback = function()
+    if vim.b.centered == nil then
+      vim.cmd.normal("zz")
+      vim.b.centered = true
+    end
   end,
 })

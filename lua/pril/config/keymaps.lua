@@ -47,6 +47,13 @@ vim.keymap.set("!", "<M-BS>", "<C-w>", { desc = "Delete word before cursor" })
 vim.keymap.set("!", "<C-v>", "<C-r><C-o>+", { desc = "Paste (noautoindent)" })
 
 -- vim diagnostics
+local goto_prev = vim.diagnostic.goto_prev
+local goto_next = vim.diagnostic.goto_next
+local severity = vim.diagnostic.severity
 vim.keymap.set("n", "<leader>i", vim.diagnostic.open_float, { desc = "Show diagnostics" })
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Goto previous diagnostic" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Goto next diagnostic" })
+vim.keymap.set("n", "[d", goto_prev, { desc = "Goto previous diagnostic" })
+vim.keymap.set("n", "]d", goto_next, { desc = "Goto next diagnostic" })
+vim.keymap.set("n", "[e", function() goto_prev({ severity = severity.ERROR }) end, { desc = "Goto prev error" })
+vim.keymap.set("n", "]e", function() goto_next({ severity = severity.ERROR }) end, { desc = "Goto next error" })
+vim.keymap.set("n", "[w", function() goto_prev({ severity = severity.WARN }) end, { desc = "Goto prev warning" })
+vim.keymap.set("n", "]w", function() goto_next({ severity = severity.WARN }) end, { desc = "Goto next warning" })

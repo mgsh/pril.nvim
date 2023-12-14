@@ -10,7 +10,16 @@ return {
     opts = {
       log_level = vim.log.levels.INFO,
       server_opts = {
-        gopls = {},
+        gopls = {
+          on_new_config = function(config, root_dir)
+            config.settings = vim.tbl_deep_extend("force", config.settings, {
+              gopls = {
+                -- TODO: move to project settings using neoconf
+                buildFlags = { "-tags=aitagger,isolated,deployed" },
+              },
+            })
+          end,
+        },
         golangci_lint_ls = {},
         -- TODO: standardize/document all lsp settings
         lua_ls = {
