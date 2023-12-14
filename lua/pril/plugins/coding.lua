@@ -34,7 +34,51 @@ return {
     },
     opts = function()
       local cmp = require("cmp")
+      local icons = {
+        Array         = " ",
+        Boolean       = "󰨙 ",
+        Class         = " ",
+        Codeium       = "󰘦 ",
+        Color         = " ",
+        Control       = " ",
+        Collapsed     = " ",
+        Constant      = "󰏿 ",
+        Constructor   = " ",
+        Copilot       = " ",
+        Enum          = " ",
+        EnumMember    = " ",
+        Event         = " ",
+        Field         = " ",
+        File          = " ",
+        Folder        = " ",
+        Function      = "󰊕 ",
+        Interface     = " ",
+        Key           = " ",
+        Keyword       = " ",
+        Method        = "󰊕 ",
+        Module        = " ",
+        Namespace     = "󰦮 ",
+        Null          = " ",
+        Number        = "󰎠 ",
+        Object        = " ",
+        Operator      = " ",
+        Package       = " ",
+        Property      = " ",
+        Reference     = " ",
+        Snippet       = " ",
+        String        = " ",
+        Struct        = "󰆼 ",
+        TabNine       = "󰏚 ",
+        Text          = " ",
+        TypeParameter = " ",
+        Unit          = " ",
+        Value         = " ",
+        Variable      = "󰀫 ",
+      }
       return {
+        completion = {
+          completeopt = "menu,menuone,noinsert",
+        },
         snippet = {
           expand = function(args)
             require("luasnip").lsp_expand(args.body)
@@ -60,6 +104,14 @@ return {
             select = true,
           }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         }),
+        formatting = {
+          format = function(_, item)
+            if icons[item.kind] then
+              item.kind = icons[item.kind] .. item.kind
+            end
+            return item
+          end,
+        },
       }
     end
   },
