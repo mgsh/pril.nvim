@@ -104,7 +104,7 @@ return {
             { buffer = buf, desc = "Goto definition" })
           vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = buf, desc = "Goto declaration" })
           vim.keymap.set("n", "gr",
-            function() require("telescope.builtin").lsp_references({ preview = true }) end,
+            function() require("telescope.builtin").lsp_references({ preview = true, show_line = false }) end,
             { buffer = buf, desc = "Show references" })
           vim.keymap.set("n", "gI",
             function() require("telescope.builtin").lsp_implementations({ reuse_win = true }) end,
