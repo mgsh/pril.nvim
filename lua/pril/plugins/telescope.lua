@@ -3,26 +3,31 @@ return {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
     cmd = "Telescope",
+    dependencies = {
+      "nvim-telescope/telescope-live-grep-args.nvim",
+      version = "1.0.x",
+    },
     keys = {
       -- common
-      { "<leader>,",       "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "Find buffers" },
-      { "<leader>;",       "<cmd>Telescope command_history<cr>",                          desc = "Search command history" },
-      { "<leader><space>", "<cmd>Telescope find_files<cr>",                               desc = "Find files (root dir)" },
+      { "<leader>,",       "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",                  desc = "Find buffers" },
+      { "<leader>;",       "<cmd>Telescope command_history<cr>",                                           desc = "Search command history" },
+      { "<leader><space>", "<cmd>Telescope find_files<cr>",                                                desc = "Find files (root dir)" },
 
       -- find
-      { "<leader>fb",      "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "Find buffers" },
-      { "<leader>ff",      "<cmd>Telescope find_files<cr>",                               desc = "Find files (root dir)" },
-      { "<leader>fr",      "<cmd>Telescope oldfiles<cr>",                                 desc = "Find recent" },
+      { "<leader>fb",      "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",                  desc = "Find buffers" },
+      { "<leader>ff",      "<cmd>Telescope find_files<cr>",                                                desc = "Find files (root dir)" },
+      { "<leader>fr",      "<cmd>Telescope oldfiles<cr>",                                                  desc = "Find recent" },
 
       -- search
-      { "<leader>sg",      "<cmd>Telescope live_grep<cr>",                                desc = "Search text (root dir)" },
-      { "<leader>sb",      "<cmd>Telescope current_buffer_fuzzy_find<cr>",                desc = "Search text (buffer)" },
-      { "<leader>sc",      "<cmd>Telescope commands<cr>",                                 desc = "Search commands" },
-      { "<leader>sC",      "<cmd>Telescope command_history<cr>",                          desc = "Search command history" },
-      { "<leader>sh",      "<cmd>Telescope help_tags<cr>",                                desc = "Search help pages" },
-      { "<leader>sk",      "<cmd>Telescope keymaps<cr>",                                  desc = "Search keymaps" },
-      { "<leader>sm",      "<cmd>Telescope man_pages<cr>",                                desc = "Search man pages" },
-      { "<leader>so",      "<cmd>Telescope vim_options<cr>",                              desc = "Search vim options" },
+      -- { "<leader>ss",      "<cmd>Telescope live_grep<cr>",                                                 desc = "Search text (root dir)" },
+      { "<leader>ss",      function() require('telescope').extensions.live_grep_args.live_grep_args() end, desc = "Search text (root dir)" },
+      { "<leader>sb",      "<cmd>Telescope current_buffer_fuzzy_find<cr>",                                 desc = "Search text (buffer)" },
+      { "<leader>sc",      "<cmd>Telescope commands<cr>",                                                  desc = "Search commands" },
+      { "<leader>sC",      "<cmd>Telescope command_history<cr>",                                           desc = "Search command history" },
+      { "<leader>sh",      "<cmd>Telescope help_tags<cr>",                                                 desc = "Search help pages" },
+      { "<leader>sk",      "<cmd>Telescope keymaps<cr>",                                                   desc = "Search keymaps" },
+      { "<leader>sm",      "<cmd>Telescope man_pages<cr>",                                                 desc = "Search man pages" },
+      { "<leader>so",      "<cmd>Telescope vim_options<cr>",                                               desc = "Search vim options" },
     },
     opts = function()
       local actions = require("telescope.actions")
@@ -47,6 +52,10 @@ return {
           },
         },
       }
+    end,
+    config = function(_, opts)
+      require("telescope").setup(opts)
+      require("telescope").load_extension("live_grep_args")
     end,
   },
 }
