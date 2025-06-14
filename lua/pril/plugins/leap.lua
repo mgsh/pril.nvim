@@ -11,5 +11,9 @@ return {
       { "<leader>?", "<Plug>(leap-backward-till)", mode = { "x", "o" }, desc = "Leap backward till" },
       { "gs",        "<Plug>(leap-from-window)",   mode = "n",          desc = "Leap from window" },
     },
+    config = function()
+      vim.api.nvim_set_hl(0, "LeapLabel", { link = "IncSearch" })
+      vim.api.nvim_set_hl(0, "LeapLabelPrimary", { link = "IncSearch" })
+    end,
   }
 }

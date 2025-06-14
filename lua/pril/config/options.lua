@@ -25,6 +25,7 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.shiftround = true
+vim.opt.textwidth = 120
 
 -- language specific tabstop overrides
 vim.api.nvim_create_autocmd("BufWinEnter", {
